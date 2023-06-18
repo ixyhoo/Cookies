@@ -6,5 +6,10 @@ input.forEach((input) => {
 })
 
 function handleValidation(e){
-    console.log(e);
+    if(e.type === "invalid"){
+        e.target.setCustomValidity("Ce champ ne peut être vide");
+    }
+    else if (e.type === "input"){
+        e.target.setCustomValidity("");
+    }
 }
