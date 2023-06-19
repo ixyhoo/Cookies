@@ -33,9 +33,24 @@ function handleForm(e){
 
 function createCookie(newCookie){
   
+    if(doesCookieExist(newCookie.name)){
+       // createToast()
+    }else{
+       // createToast()
+    }
+
     document.cookie = `${encodeURIComponent(newCookie.name)}=$
     {encodeURIComponent(newCookie.value)}; 
     expires=${newCookie.expires.toUTCString()}`
 
 }
 
+function doesCookieExist(name){
+    const cookies = document.cookie.replace(/\s/g, '').split(';')
+    const onlyCookiesName = cookies.map(cookie => cookie.split('=')[0])
+    console.log(cookies, onlyCookiesName);
+    const cookipresence = onlyCookiesName.find(cookie => cookie === 
+        encodeURIComponent(name))
+        
+        return cookipresence;
+}
