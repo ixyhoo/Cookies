@@ -34,9 +34,9 @@ function handleForm(e){
 function createCookie(newCookie){
   
     if(doesCookieExist(newCookie.name)){
-       // createToast()
+       createToast({name: newCookie.name, state: "modifié", color: "orangered"})
     }else{
-       // createToast()
+       createToast({name: newCookie.name, state: "créé", color: "green"})
     }
 
     document.cookie = `${encodeURIComponent(newCookie.name)}=$
@@ -49,8 +49,10 @@ function doesCookieExist(name){
     const cookies = document.cookie.replace(/\s/g, '').split(';')
     const onlyCookiesName = cookies.map(cookie => cookie.split('=')[0])
     console.log(cookies, onlyCookiesName);
-    const cookipresence = onlyCookiesName.find(cookie => cookie === 
+    const cookiePresence = onlyCookiesName.find(cookie => cookie === 
         encodeURIComponent(name))
-        
-        return cookipresence;
+
+        return cookiePresence;
 }
+
+function createToast({name, state, color})
