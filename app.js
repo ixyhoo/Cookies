@@ -27,8 +27,10 @@ function handleForm(e){
         newCookie[nameAttribute] = input.value;
     })
     newCookie.expires = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
-    console.log(newCookie);
+    cookieForm.reset()
+    
     createCookie(newCookie)
+
 }
 
 function createCookie(newCookie){
