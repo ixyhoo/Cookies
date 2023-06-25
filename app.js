@@ -55,4 +55,18 @@ function doesCookieExist(name){
         return cookiePresence;
 }
 
-function createToast({name, state, color})
+const toastsContainer = document.querySelector('.toasts-container')
+
+function createToast({name, state, color}){
+    const toastInfo = document.createElement("P");
+    toastInfo.className = "toast";
+
+toastInfo.textContent = `Le cookie ${name} a été ${state} !`;
+toastInfo.style.backgroundColor = color;
+toastsContainer.appendChild(toastInfo);
+
+setTimeout(() => {
+    toastInfo.remove();
+}, 2500)
+}
+
