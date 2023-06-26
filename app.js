@@ -95,6 +95,6 @@ function displayCookies(){
         }, 1500)
         return;
     }
-   // createElements(cookies)
+    createElements(cookies)
 }
 

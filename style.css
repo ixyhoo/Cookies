@@ -73,6 +73,13 @@ form button {
     text-align: center;
 }
 
+    font-size: 40px;
+    list-style-type: none;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+}
+
 .toasts-container {
     position: fixed;
     bottom: 20px;
