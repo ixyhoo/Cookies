@@ -72,3 +72,29 @@ setTimeout(() => {
 }, 2500)
 }
 
+const cookiesList = document.querySelector('.cookies-list')
+const displayCookieBtn  = document.querySelector('.display-cookie-btn')
+const infoTxt = document.querySelector('.info-txt')
+
+displayCookieBtn.addEventListener('click', displayCookies)
+
+let lock = false;
+function displayCookies(){
+    const cookies = document.cookie.replace(/\s/g, '').split(';').reverse()
+    console.log(cookies);
+
+    if(!cookies[0]) {
+        if (lock) return;
+
+        lock = true;
+        infoTxt.textContent = "Pas de cookies à afficher, créez-en un !"
+
+        setTimeout(() => {
+            infoTxt.textContent = "";
+            lock = false;
+        }, 1500)
+        return;
+    }
+   // createElements(cookies)
+}
+
