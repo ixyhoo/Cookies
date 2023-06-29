@@ -102,6 +102,17 @@ function createElements(cookies){
 
     cookies.forEach(cookie => {
         const formatCookie = cookie.split('=');
+        console.log(formatCookie);
+        const listItem = document.createElement('li');
+        const name = decodeURIComponent(formatCookie[0]);
+        const itemContent = ` 
+        <p>
+        <span>Nom</span> : ${name}
+        </p>
+        <p>
+        <span>Valeur</span> : ${decodeURIComponent(formatCookie[1])}
+        </p>
+        `
     })
 }
 
