@@ -105,14 +105,22 @@ function createElements(cookies){
         console.log(formatCookie);
         const listItem = document.createElement('li');
         const name = decodeURIComponent(formatCookie[0]);
-        const itemContent = ` 
+        
+        listItem.innerHTML = `
         <p>
         <span>Nom</span> : ${name}
         </p>
         <p>
         <span>Valeur</span> : ${decodeURIComponent(formatCookie[1])}
         </p>
-        `
+        <button>x</button>
+        `;
+        listItem.querySelector('button').addEventListener('click', e => {
+            createToast({name, state: "supprimé", color: "crimson"})
+            document.cookie = `${formatCookie[0]}=; experies=${new Date(0)}`
+            e.target.parentElement.remove()
+        })
+        cookiesList.appendChild(listItem)
     })
 }
 
