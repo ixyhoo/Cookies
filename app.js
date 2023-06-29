@@ -45,6 +45,10 @@ function createCookie(newCookie){
     {encodeURIComponent(newCookie.value)}; 
     expires=${newCookie.expires.toUTCString()}`
 
+    if(cookiesList.children.length) {
+        displayCookies()
+    }
+
 }
 
 function doesCookieExist(name){
@@ -80,6 +84,7 @@ displayCookieBtn.addEventListener('click', displayCookies)
 
 let lock = false;
 function displayCookies(){
+    if(cookiesList.children.length) cookiesList.textContent = "";
     const cookies = document.cookie.replace(/\s/g, '').split(';').reverse()
     console.log(cookies);
 
@@ -120,7 +125,7 @@ function createElements(cookies){
             document.cookie = `${formatCookie[0]}=; experies=${new Date(0)}`
             e.target.parentElement.remove()
         })
-        cookiesList.appendChild(listItem)
+        cookiesList.appendChild(listItem);
     })
 }
 
